@@ -28,10 +28,6 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <!-- <ul class="nav navbar-nav">
-            <li><%#= link_to "Recommended", links_path %></li>
-          </ul> -->
-
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <%= yield :right_nav %>
@@ -54,6 +50,25 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <%= yield %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          <% if user_signed_in? %>
+            <h5>Chatrooms</h5>
+            <ul>
+              <% current_user.chatrooms.each do |chatroom| %>
+                <li><%= link_to chatroom.name, "#" %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+
+        <div class="col-sm-10">
+          <%= yield %>
+        </div>
+      </div> <!-- /row -->
+    </div> <!-- /container-fluid -->
+
   </body>
 </html>
