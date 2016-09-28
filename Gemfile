@@ -62,3 +62,5 @@ gem 'bootstrap-sass'
 gem 'devise'
 # Style Devise views with default Bootstrap styles
 gem 'devise-bootstrapped', '~> 0.1.1'
+
+gem 'redis'
